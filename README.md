@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Using Toast component
 
-## Getting Started
+Namings
 
-First, run the development server:
+1. Sent
+2. Warn
+3. Warning - (has Try again onClick button)
+4. Error - (has Try again onClick button)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+All the above Toasters have only one arguement except 3 and 4.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To use a Toast simply replace an error or alert with the appropriate toaster .
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+eg onClick= {() => sent('your message')}
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+for toasts 3 and 4 , use a max. of 2 arguements
 
-## Learn More
+eg onClick= {() => sent('your message', () => {})}
 
-To learn more about Next.js, take a look at the following resources:
+Naming Convection
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- The full name eg sent, warn, warning, error
+  has a complete structure including cancel button , try again etc
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+A toast without the cancel button is called eg sentWithoutCancel,
+A toast with the cancel button is called eg sentWithCancel,
+A toast without the tryagain button is called eg sentWithoutTryagain,
 
-## Deploy on Vercel
+for toasts in White use eg. sentWhite
+for toasts in Black use eg. sentBlack
+for toasts in Yellow use eg. warningYellow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+check toast.tsx under components for more information
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Sample
+
+<!-- import {
+  error,
+  errorRed,
+  errorWithCancel,
+  errorWithoutCancel,
+  errorWthoutTryagain,
+  sent,
+  sentWhite,
+  warn,
+  warnBlack,
+  warning,
+  warningWhite,
+  warningWithoutCancel,
+  warningYellow,
+} from "./components/Toasts"; -->
+
+returns
+
+ <!-- <button
+          className="absolute top-[400px] p-4 rounded-lg bg-black text-white ml-5"
+          onClick={() =>
+            error(
+              "Explain the situation as clearly and concisely as possible",
+              () => {
+                alert("done");
+              }
+            )
+          }
+        >
+          Render my toast
+        </button> -->
