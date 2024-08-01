@@ -22,7 +22,7 @@ import {
 export default function Home() {
   return (
     <main className="h-screen">
-      <div className="flex flex-col gap-8 mx-auto mt-[50px]">
+      <div className=" flex md:flex-col pt-[500px] flex-wrap gap-8 mx-auto md:pt-[50px] pb-[20px]">
         <div>
           <button
             className="  p-3 rounded-lg bg-red-700 text-white ml-5"
